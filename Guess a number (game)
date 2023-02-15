@@ -1,0 +1,43 @@
+import random
+
+while True:
+    
+    try:
+        guess = int(input("Enter your guess: "))
+        number = random.randint(0, 100)
+        count = 1
+        if guess < 0 or guess > 100 :
+            raise NameError("You must type a number between 0 and 100!")
+    except NameError as error:
+        print (error)
+    except ValueError:
+        print("You must type a number between 0 and 100!")
+    else:
+        while guess != number:
+            if guess > number:
+                print ("Try lower!")
+                try:
+                    guess1 = int(input("Enter your guess: "))
+                    if guess1 < 0 or guess1 > 100 :
+                        raise NameError("You must type a number between 0 and 100!")
+                except NameError as error:
+                    print (error)
+                except ValueError:
+                    print("You must type a number between 0 and 100!")
+                count += 1
+            elif guess < number:
+                print ("Try higher!")
+                try:
+                    guess2 = int(input("Enter your guess: "))
+                    if guess2 < 0 or guess2 > 100 :
+                        raise NameError("You must type a number between 0 and 100!")
+                except NameError as error:
+                    print (error)
+                except ValueError:
+                    print("You must type a number between 0 and 100!")
+                count += 1
+            else:
+                break
+        print (f"Yes, I was thinking of {number}! You guessed it in {count} tries!")
+    break
+    
